@@ -54,6 +54,19 @@ class Delikateska_Tests(unittest.TestCase):
         time.sleep(3)
         driver.find_element(By.XPATH, ".//div[@class='account-btn__sub-title']")
 
+    def test_cart(self):
+        driver = self.driver
+        driver.get("https://www.delikateska.ru/")
+        time.sleep(2)
+        button_element = driver.find_element(By.XPATH,".//div[@id='onesignal-slidedown-container'] //button[@id='onesignal-slidedown-cancel-button']")
+        button_element.click()
+        time.sleep(2)
+        button_element = driver.find_element(By.XPATH, ".//div[@class='keen-slider__slide' and .//div[@class='product-card-new__title' and text()='Апельсины Сицилийские ~1кг']] //div[@class='ProductBuyBtns__plus']")
+        button_element.click()
+        time.sleep(2)
+        driver.find_element(By.XPATH, ".//span[@class='cart-btn__ruble']")
+        time.sleep(1)
+
     def tearDown(self):
         self.driver.close()
 
